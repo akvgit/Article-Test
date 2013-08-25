@@ -1,30 +1,37 @@
-## Introduction
+=======
+Article-Test
+============
 
-CodeIgniter Bootstrap kick starts the development process of the web development process by including Twitter Bootstrap into CodeIgniter. It also includes certain libraries such as AWS and Facebook in-case you are developing applications requiring those SDKs. So stop writing the same code over again and start working on your idea.
+Sample CRUD Application Using Jamie Rumbelow's MY_Model and MY_Controller
 
-CodeIgniter Bootstrap follows the path where it lazy loads libraries. Though the project footprint may be large, the memory footprint will still be extremely light. Try not to autoload libraries as it does not follow the CodeIgniter convention (though some libraries do make sense to autoload).
+<b>What is Article Test</b><br>
+This is a sample code file which goes through the steps of creating, updating and deleting articles in a sample application.
+using Jamie Rumbelow's MY_Model and MY_Controller along with Twitter Bootstrap.
 
-## Installation
+<b>Installation</b><br>
+Download the files into your projects directory. Make necessary changes to database.php file.<br>
+Create a table like:-<br>
+CREATE TABLE IF NOT EXISTS `articles` (<br>
+ `body` text,<br>
+ `title` varchar(250) DEFAULT NULL,<br>
+ `id` int(11) NOT NULL AUTO_INCREMENT,<br>
+ PRIMARY KEY (`id`),<br>
+ FULLTEXT KEY `body` (`body`,`title`)<br>
+) ENGINE=MyISAM <br>
+<br>
+Dumping Data for table 'articles'<br>
 
-Derived from CodeIgniter, read [CodeIgniter Installation](http://codeigniter.com/user_guide/installation/index.html) for how to install using this [zipball](https://github.com/sjlu/CodeIgniter-Bootstrap/zipball/master) instead. If you're not familiar with CodeIgniter, I suggest reading the [CodeIgniter Tutorial](http://codeigniter.com/user_guide/tutorial/index.html) on how to get started and read the [wiki](https://github.com/sjlu/CodeIgniter-Bootstrap/wiki) for more information.
 
-## Flavors
-
-* The `master` branch contains the original and includes [Twitter Bootstrap](http://twitter.github.io/bootstrap/) and [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
-* The `cdn` branch contains the same libraries but is hosted by [BootstrapCDN](http://www.bootstrapcdn.com/).
-
-## Documentation
-
-Check out the [Wiki](https://github.com/sjlu/CodeIgniter-Bootstrap/wiki) for more information.
-
-## Releases
-
-This is currently a very active project, there are no projected release locks planned. All changes will be latest in master and may be unstable.
-
-## License
-
-MIT with [CodeIgniter Amendments](http://codeigniter.com/user_guide/license.html)
-
-## Other
-
-If you're looking for a LESS and/or JS compilier, try out another flavor like [CodeIgniter Sunrise](https://github.com/sjlu/CodeIgniter-Sunrise).
+INSERT INTO `articles` (`body`, `title`, `id`) VALUES<br>
+ ('bears are fuzzy and cute - but don''t try to pet them!', 'Something about bears', 1),<br>
+ ('Fuzzy Wuzzy was a bear; Fuzzy Wuzzy had no hair. Fuzzy Wuzzy wasn''t very fuzzy, was he?', 'Fuzzy Wuzzy', 2),<br>
+ ('This is dumb and boring', 'Dumb and boring post', 3),<br>
+ ('This is dumb and boring, too.', 'Second Dumb and boring post', 4);<br>
+ 
+ Now you can view the page in the browser by using /path/to/projectfolder/article<br>
+ 
+ <b>Reference:-</b><br>
+ Code by Jeff: http://www.codebyjeff.com/blog/2012/01/using-jamie-rumbelows-my_model<br>
+ Codeigniter Bootstrap: https://github.com/sjlu/CodeIgniter-Bootstrap<br>
+ Jamie Rumbelow's MY_Model: https://github.com/jamierumbelow/codeigniter-base-model<br>
+Jamie Rumbelow's MY_Controller: https://github.com/jamierumbelow/codeigniter-base-controllerm/blog/2012/01/using-jamie-rumbelows-my_model<br>
