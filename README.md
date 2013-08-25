@@ -1,30 +1,35 @@
-## Introduction
+What is Article Test
+This is a sample code file which goes through the steps of creating, updating and deleting articles in a sample application.
+using Jamie Rumbelow's MY_Model and MY_Controller along with Twitter Bootstrap.
 
-CodeIgniter Bootstrap kick starts the development process of the web development process by including Twitter Bootstrap into CodeIgniter. It also includes certain libraries such as AWS and Facebook in-case you are developing applications requiring those SDKs. So stop writing the same code over again and start working on your idea.
+Installation
+Download the files into your projects directory. Make necessary changes to database.php file.
+Create a table like:-
 
-CodeIgniter Bootstrap follows the path where it lazy loads libraries. Though the project footprint may be large, the memory footprint will still be extremely light. Try not to autoload libraries as it does not follow the CodeIgniter convention (though some libraries do make sense to autoload).
+CREATE TABLE IF NOT EXISTS `articles` (
+ `body` text,
+ `title` varchar(250) DEFAULT NULL,
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ PRIMARY KEY (`id`),
+ FULLTEXT KEY `body` (`body`,`title`)
+) ENGINE=MyISAM  
 
-## Installation
 
-Derived from CodeIgniter, read [CodeIgniter Installation](http://codeigniter.com/user_guide/installation/index.html) for how to install using this [zipball](https://github.com/sjlu/CodeIgniter-Bootstrap/zipball/master) instead. If you're not familiar with CodeIgniter, I suggest reading the [CodeIgniter Tutorial](http://codeigniter.com/user_guide/tutorial/index.html) on how to get started and read the [wiki](https://github.com/sjlu/CodeIgniter-Bootstrap/wiki) for more information.
+--
+-- Dumping data for table `articles`
+--
 
-## Flavors
+ INSERT INTO `articles` (`body`, `title`, `id`) VALUES
+ ('bears are fuzzy and cute - but don''t try to pet them!', 'Something about bears', 1),
+ ('Fuzzy Wuzzy was a bear; Fuzzy Wuzzy had no hair. Fuzzy Wuzzy wasn''t very fuzzy, was he?', 'Fuzzy Wuzzy', 2),
+ ('This is dumb and boring', 'Dumb and boring post', 3),
+ ('This is dumb and boring, too.', 'Dumb and boring post', 4);
 
-* The `master` branch contains the original and includes [Twitter Bootstrap](http://twitter.github.io/bootstrap/) and [Font Awesome](http://fortawesome.github.io/Font-Awesome/).
-* The `cdn` branch contains the same libraries but is hosted by [BootstrapCDN](http://www.bootstrapcdn.com/).
+Now you can view the page in the browser by using /path/to/projectfolder/article
 
-## Documentation
 
-Check out the [Wiki](https://github.com/sjlu/CodeIgniter-Bootstrap/wiki) for more information.
-
-## Releases
-
-This is currently a very active project, there are no projected release locks planned. All changes will be latest in master and may be unstable.
-
-## License
-
-MIT with [CodeIgniter Amendments](http://codeigniter.com/user_guide/license.html)
-
-## Other
-
-If you're looking for a LESS and/or JS compilier, try out another flavor like [CodeIgniter Sunrise](https://github.com/sjlu/CodeIgniter-Sunrise).
+Reference:-
+Code by Jeff: http://www.codebyjeff.com/blog/2012/01/using-jamie-rumbelows-my_model
+Codeigniter Bootstrap: https://github.com/sjlu/CodeIgniter-Bootstrap
+Jamie Rumbelow's MY_Model: https://github.com/jamierumbelow/codeigniter-base-model
+Jamie Rumbelow's MY_Controller: https://github.com/jamierumbelow/codeigniter-base-controller
